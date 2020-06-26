@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import './cart-item.styles.scss';
+import {CartContext} from '../../providers/cart/cart.provider';
 
-const CartItem = ({ item: { imageUrl, price, name, quantity } }) => (
+
+const CartItem = ({ item: { imageUrl, price, name, quantity } }) => {
+  return(
   <div className='cart-item'>
     <img src={imageUrl} alt='item' />
     <div className='item-details'>
@@ -12,6 +15,6 @@ const CartItem = ({ item: { imageUrl, price, name, quantity } }) => (
       </span>
     </div>
   </div>
-);
+)};
 
 export default CartItem;
