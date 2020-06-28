@@ -1,7 +1,7 @@
-import React, {useContext} from 'react';
+import React, {} from 'react';
 
 import './cart-item.styles.scss';
-import {CartContext} from '../../providers/cart/cart.provider';
+
 
 
 const CartItem = ({ item: { imageUrl, price, name, quantity } }) => {
@@ -17,4 +17,4 @@ const CartItem = ({ item: { imageUrl, price, name, quantity } }) => {
   </div>
 )};
 
-export default CartItem;
+export default React.memo(CartItem);

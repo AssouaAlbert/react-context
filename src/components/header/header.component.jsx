@@ -1,5 +1,5 @@
-import React,{useContext, useState} from 'react';
-import { Link } from 'react-router-dom';
+import React,{useContext, memo, } from 'react';
+
 
 
 import { auth } from '../../firebase/firebase.utils';
@@ -11,7 +11,7 @@ import {CartContext} from '../../providers/cart/cart.provider';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
 // import './header.style.scss';
-import {HeaderContainer, OptionLinkContainer, OptionSpanContainer,OptionsContainer, LogoContainter} from './header.styles';
+import {HeaderContainer, OptionLinkContainer,OptionsContainer, LogoContainter} from './header.styles';
 
 const Header = () => {
   const currentUser = useContext(CurrentUser);
@@ -36,4 +36,4 @@ const Header = () => {
 );}
 
 
-export default (Header);
+export default React.memo(Header);
