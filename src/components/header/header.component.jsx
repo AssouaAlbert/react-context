@@ -10,36 +10,29 @@ import {CartContext} from '../../providers/cart/cart.provider';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
-import './header.styles.scss';
+// import './header.style.scss';
+import {HeaderContainer, OptionLinkContainer, OptionSpanContainer,OptionsContainer, LogoContainter} from './header.styles';
 
 const Header = () => {
   const currentUser = useContext(CurrentUser);
   const {hidden} = useContext(CartContext);
   return (
-  <div className='header'>
-    <Link className='logo-container' to='/'>
-      <Logo className='logo' />
-    </Link>
-    <div className='options'>
-      <Link className='option' to='/shop'>
-        SHOP
-      </Link>
-      <Link className='option' to='/shop'>
-        CONTACT
-      </Link>
+  <HeaderContainer>
+    <LogoContainter to='/'><Logo className='logo'/></LogoContainter>
+    <OptionsContainer className='options'>
+      <OptionLinkContainer to='/shop'>SHOP</OptionLinkContainer>
+      <OptionLinkContainer to='/shop'>CONTACT</OptionLinkContainer>
       {currentUser ? (
-        <div className='option' onClick={() => auth.signOut()}>
-          SIGN OUT
-        </div>
+        <div onClick={() => auth.signOut()}>SIGN OUT</div>
       ) : (
-        <Link className='option' to='/signin'>
+        <OptionLinkContainer to='/signin'>
           SIGN IN
-        </Link>
+        </OptionLinkContainer>
       )}
         <CartIcon />
-    </div>
+    </OptionsContainer>
     {hidden ? null : <CartDropdown />}
-  </div>
+  </HeaderContainer>
 );}
 
 

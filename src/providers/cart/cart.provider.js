@@ -40,7 +40,7 @@ const CartProvider = ({children}) => {
             total
         }}
     >
-        ({children})
+    {children}
     </CartContext.Provider>
     )
 }
